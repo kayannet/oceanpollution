@@ -1,0 +1,7 @@
+<script>
+  import ScrollyTeller from '../components/ScrollyTe./ScrollyTeller.svelte<ScrollyTeller />
+</main>
+
+<style>
+  /* Write your CSS here */
+</style>
