@@ -52,12 +52,12 @@
 
         <div class="box" style:transform={`translate3d(${scroll * 0.3}px, ${scroll * -0.3}px, ${scroll * -2}px)`} style:background="">
             <div class = fish1>
-                <img src = "src/img/swimming_fish.png" alt = 'swimming_fish' style="max-width: 100%; max-height: 100%;">
+                <img src = "../src/img/swimming_fish.png" alt = 'swimming_fish' style="max-width: 100%; max-height: 100%;">
             </div>
         </div>
         <div class="box" style:transform={`translate3d(${scroll * 0.3}px, ${scroll * -0.5}px, ${scroll * -2}px)`} style:background="">
             <div class = fish1>
-                <img src = "src/img/swimming_fish.png" alt = 'swimming_fish' style="max-width: 100%; max-height: 100%;">
+                <img src = "../src/img/swimming_fish.png" alt = 'swimming_fish' style="max-width: 100%; max-height: 100%;">
             </div>
         </div>
         <!-- <div class="box" style:transform={`translate3d(0, ${scroll * -0.5}px, 0)`} style:background = "yellow"/> -->
