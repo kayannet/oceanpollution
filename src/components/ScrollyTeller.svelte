@@ -4,6 +4,8 @@
   import { onMount } from 'svelte';
   import * as d3 from 'd3';
   let count, index, offset, progress;  
+  let width, height;
+  
 
 
 </script>
@@ -17,7 +19,11 @@
   bind:offset
   bind:progress
 >
-  <div class="background" slot="background">
+  <div 
+    class="background" 
+    slot="background"
+    bind:clientWidth = {width}
+    bind:clientHeight = {height}>
 
 
     <div class="progress-bars">
@@ -33,9 +39,17 @@
   </div>
 
   <div class="foreground" slot="foreground">
-    <section>This is the first section.</section>
     <section>
 
+      <div>
+        <h1> PLASTIC POLLUTION </h1>
+        <h2> text introducing our topic</h2>
+      </div>
+
+
+    </section>
+    <section>
+      <Test {index}  />
 
     </section>
     <section>This is the third section.</section>
@@ -44,6 +58,17 @@
 
 
 <style>
+  .parallax {
+    background-image: url('https://www.engineerlive.com/sites/engineerlive/files/stock.jpg');
+    min-height: 500px;
+
+    background-attachment: fixed;
+    
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   .background {
     width: 100%;
     height: 100vh;
@@ -76,4 +101,19 @@
     padding: 1em;
     margin: 0 0 2em 0;
   }
+  /* h1,
+  h2 {
+    position: relative;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    padding: 1em;
+    margin: 0;
+    z-index: 999; /* Ensure it stays above other content */
+  .title {
+    transition: top 0.3s ease-in-out;
+  }
 </style>
+
+<div class="parallax"></div>
+

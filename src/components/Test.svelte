@@ -49,12 +49,48 @@
         .attr("d", d3.line()
           .x(d => x(d.x))
           .y(d => y(d.y)));
+
+
+          // Add event listeners for interactivity
+    svg.selectAll(".dot")
+        .data(data)
+        .enter().append("circle")
+        .attr("class", "dot")
+        .attr("cx", d => x(d.x))
+        .attr("cy", d => y(d.y))
+        .attr("r", 5)
+        .style("fill", "steelblue")
+        .on("mouseover", handleMouseOver)
+        .on("mouseout", handleMouseOut);
+    
+        svg.selectAll(".text-label")
+        .data(data)
+        .enter().append("text")
+        .attr("class", "text-label")
+        .attr("x", d => x(d.x))
+        .attr("y", d => y(d.y) - 10) // Adjust the y position as needed
+        .text(d => `(${d.x}, ${d.y})`)
+        .attr("text-anchor", "middle")
+        .attr("font-size", "10px")
+        .attr("fill", "black");
+
+        function handleMouseOver(d, i) {
+        d3.select(this)
+            .transition()
+            .duration(200)
+            .attr("r", 8);
+        }
+
+        function handleMouseOut(d, i) {
+        d3.select(this)
+            .transition()
+            .duration(200)
+            .attr("r", 5);
+        }
     });
-
-
   </script>
   
-  <div id="chart"></div>
+  <div id="chart" ></div>
   
   <style>
     /* Add any necessary styles for your chart container */
@@ -62,5 +98,9 @@
       width: 100%;
       height: 400px;
     }
+    /* .chart.visible {
+    opacity: 1;
+    visibility: visible;
+  } */
   </style>
   
