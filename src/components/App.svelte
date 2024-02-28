@@ -17,19 +17,26 @@
 
 <div class = "container" background-color="yellow">
 
-    <section style:min-height="{16 * 500}px">
+    <section style="min-height: {16 * 500}px">
         <div class="box" style:transform={`translate3d(0, ${scroll * 0.4}px, 0)`} style:background="teal">
             <h2>PLASTIC POLLUTION</h2>
-            <p> BY: KAYANNE TRAN AND KETKI CHAKRADEO</p>
+            <p class = "subtitle">BY: KAYANNE TRAN AND KETKI CHAKRADEO</p>
         </div>
-        <div class="box" />
-        <div class="box" style:transform={`translate3d(0, ${scroll >= threshold ? threshold * 3 : scroll * -2}px, 0)`} style:background="red">
-            <Test  />
+        <div class="box" style:transform={`translate3d(0, ${scroll * 0.6}px, 0)`} style:background = 'teal'> 
+            <p class = "text">
 
-        
-        
+                Plastic is a synthetic material that can be molded when soft and formed into a solid shape.
+                It is used in nearly all of our products, and it has been an extremely useful invention
+
+                * some short intro*
+            </p>
+
+
         </div>
-        <div class="box" style:transform={`translate3d(0, ${scroll * -3}px, 0)`} style:background="pink"/>
+        <div class="box" style:transform={`translate3d(0, ${scroll }px, 0)`} style:background="red">
+            <Test  />
+        </div>
+        <div class="box" />  <!--  style:transform={`translate3d(0, ${scroll * -3}px, 0)`} style:background="pink"/> -->
         <div class="box" />
         <div class="box" />
         <div class="box" />
@@ -72,16 +79,16 @@
         left: 50%;
         transform: translate(-50%, -50%); /* Translate the text to center it properly */
 		position: relative;
-        font-family: 'Franklin Gothic Heavy';
+        font-family: 'Franklin Gothic Medium';
         font-size: 80px;
         color: white;
         text-align: center;
 		z-index: 10;
     }
-    p{
+    /* p{
         top: 20%;
         left: 50%;
-        transform: translate(-50%, -50%); /* Translate the text to center it properly */
+        transform: translate(-50%, -50%); 
 		position: relative;
         font-family: 'Franklin Gothic Medium';
         font-size: 25px;
@@ -89,13 +96,36 @@
         text-align: center;
 		z-index: 10;
 
+    } */
+    .subtitle{
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Translate the text to center it properly */
+		position: relative;
+        font-family: 'Helvetica';
+        font-size: 25px;
+        color: white;
+        text-align: center;
+		z-index: 10;
     }
+    .text{
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Translate the text to center it properly */
+		position: relative;
+        font-family: 'Futura';
+        font-size: 25px;
+        color: white;
+        text-align: center;
+		z-index: 11;
+    }
+
 	.box {
 		/* --size: 500px; */
 		height: 100%;
 		width:  100%;
 		background: grey;
-		margin-bottom: 1rem;
+		margin-bottom: 0rem;
         position: relative;
         /* margin: 0; */
 
