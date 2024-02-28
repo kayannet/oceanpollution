@@ -76,17 +76,11 @@
 
 
 <style>
-    body{
+    /* body{
         background-color: teal;
-    }
-    img{
-        padding: 0;
-        margin: 0;
-    }
-    .container {
-        /* margin: 0px; */
-        /* background-color: darkblue; Set the background color of the entire website */
-    }
+    } */
+   
+   
 
     
     section {
