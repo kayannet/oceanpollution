@@ -14,8 +14,8 @@
     onMount(() => {
       // Set the dimensions and margins of the plot
       const margin = {top: 20, right: 30, bottom: 30, left: 40};
-      const width = 600 - margin.left - margin.right;
-      const height = 400 - margin.top - margin.bottom;
+      const width = 500 - margin.left - margin.right;
+      const height = 500 - margin.top - margin.bottom;
   
       // Append the SVG object to the div called "chart"
       const svg = d3.select("#chart")
@@ -96,7 +96,7 @@
     /* Add any necessary styles for your chart container */
     #chart {
       width: 100%;
-      height: 400px;
+      height: 0;
     }
     /* .chart.visible {
     opacity: 1;
