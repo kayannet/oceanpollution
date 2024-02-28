@@ -14,6 +14,7 @@
 
 <h1>{scroll}</h1>
 
+src/img/swimming_fish.png
 <div class = "container" style:background="teal">
 
     <section style="min-height: {16 * 500}px">
