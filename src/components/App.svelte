@@ -194,12 +194,12 @@
         background: "";
 
     }
-    .vis2{
+    /* .vis2{
         position: absolute;
         top: 1760px;
         left: 800px;
         z-index: 9;
 
 
-    }
+    } */
 </style>
