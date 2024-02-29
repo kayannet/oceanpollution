@@ -2,6 +2,10 @@
 <script>
     import Test from './Test.svelte';
     import swimmingFish from '$lib/img/swimming_fish.png'
+
+    // import data from ".static/global-plastic-production.js";
+    // import BarChart from "./BarChart.svelte";
+    
 	let scroll;
 	let speed = 4
     let width, height;
