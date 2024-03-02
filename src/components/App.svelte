@@ -4,7 +4,8 @@
     import swimmingFish from '$lib/img/swimming_fish.png'
 
     // import data from ".static/global-plastic-production.js";
-    // import BarChart from "./BarChart.svelte";
+    import BarChart from "./BarChart.svelte";
+    import Bchart from "./bgraph.svelte";
     
 	let scroll;
 	let speed = 4
@@ -49,7 +50,7 @@
                 <img src = {swimmingFish} alt = 'swimming_fish' style="max-width: 100%; max-height: 100%;">
             </div>
         </div>
-        <div class="box" style:transform={`translate3d(${scroll * 0.3}px, ${scroll * -0.5}px, ${scroll * -2}px)`} style:background="">
+        <div class="box" style:transform={`translate3d(${scroll * 0.7}px, ${scroll * -0.5}px, ${scroll * -2}px)`} style:background="">
             <div class = fish1>
                 <img src = {swimmingFish} alt = 'swimming_fish' style="max-width: 100%; max-height: 100%;">
             </div>
@@ -61,27 +62,43 @@
             <p class = 'text2'> *something about how plastic is <br> bad for environment and <br> how pollution is so bad</p>
         </div>
 
-        
-        <!-- FIRST VISUALIZATION -->
-        <div class="box" style:transform={`translate3d(0, ${scroll * -0.5}px, 0)`} style:background="teal">
-            <Test  />
-            <p class = caption1> VIS 1 HERE (about global plastic production over time)</p>
 
+        <div>        
+            <p class = 'text25'> *something about how plastic is <br> bad for environment and <br> how pollution is so bad</p>
         </div>
 
-        <div class="box" id = 'pic1' style:transform={`translate3d(0, ${scroll * -0.4}px,0)`} style:background="red">
+        <div class = 'barChart1'>
+            <Bchart />
+            <p class="caption1"> VIS 1 HERE (about global plastic production over time)</p>
+        </div>
+
+
+
+
+        
+
+        
+        <!-- FIRST VISUALIZATION -->
+        <!-- <div class="box" style="transform: translate3d(0, ${scroll * -2}px, 0); background: red;">
+            <BarChart />
+            <p class="caption1">VIS 1 HERE (about global plastic production over time)</p>
+        </div>
+         -->
+        
+
+        <!-- <div class="box" id = 'pic1' style:transform={`translate3d(0, ${scroll * -0.4}px,0)`} style:background="red">
             <div class = fish1>
                 <img src = "https://www.greenpeace.org/usa/wp-content/uploads/2018/04/GP0STR1T7_Medium_res-970xcenter-c-default.jpg" alt = 'Plastic Pollution' style="max-width: 100%; max-height: 100%;">
             </div>
-        </div>
+        </div> -->
 
 
         <!-- SECOND VISUALIZATION -->
-        <div class="box" style:transform={`translate3d(0, ${scroll * -0.5}px, 0)`} style:background="teal">
+        <!-- <div class="box" style:transform={`translate3d(0, ${scroll * -0.5}px, 0)`} style:background="teal">
             <Test  />
             <p class = caption1> VIS 2 HERE (choropleth)</p>
 
-        </div>
+        </div> -->
 
        
         
@@ -101,6 +118,12 @@
 
 
 <style>
+    
+    .container {
+        width: 100vw; /* Set the width to 100% of the viewport width */
+        overflow-x: hidden; /* Hide horizontal overflow */
+    }
+
     section {
         /* margin: 0px; */
         display: flex;
@@ -108,7 +131,10 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
+        width: 100vw;
         overflow-y: auto; /* Enable vertical scrolling */
+        overflow-x: hidden; /* Hide horizontal overflow */
+
 
     }
 	h1 {
@@ -173,9 +199,20 @@
         text-align: left;
 		z-index: 11;
     }
+    .text25{
+        top: -900px;
+        left: 900px;
+        transform: translate(-50%, -50%); /* Translate the text to center it properly */
+		position: relative;
+        font-family: 'Futura';
+        font-size: 25px;
+        color: white;
+        text-align: left;
+		z-index: 11;
+    }
     .caption1{
-        top: 0;
-        left: 100%;
+        top: -300px;
+        left: 1700px;
         transform: translate(-50%, -50%); /* Translate the text to center it properly */
 		position: relative;
         font-family: 'Futura';
@@ -183,6 +220,11 @@
         color: white;
         text-align: Left;
 		z-index: 1;
+    }
+    .barChart1{
+        top: -800px;
+        left: -400px;
+        position: relative;
     }
 
 	.box {

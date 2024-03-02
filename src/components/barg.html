@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Misamanged Plastic Waste</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    /* Add some basic styling */
+    .bar {
+      fill: steelblue;
+    }
+
+    .bar:hover {
+      fill: orange;
+    }
+
+    .axis {
+      font-size: 12px;
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .title {
+      font-size: 18px;
+      text-anchor: middle;
+    }
+
+    .tooltip {
+      position: absolute;
+      background-color: white;
+      border: 1px solid black;
+      padding: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <svg id="chart"></svg>
+  <div class="tooltip"></div>
+  <script>
+    // Load data from CSV file
+    d3.csv("static/csv data/mismanaged-plastic-waste-per-capita.csv").then(function(data) {
+      // Set up SVG
+      const margin = { top: 40, right: 20, bottom: 30, left: 40 };
+      const width = 800 - margin.left - margin.right;
+      const height = 500 - margin.top - margin.bottom;
+
+      const svg = d3.select("#chart")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      // Set up scales
+      const x = d3.scaleBand()
+        .range([0, width])
+        .padding(0.1)
+        .domain(data.map(d => d.Entity));
+
+      const y = d3.scaleLinear()
+        .range([height, 0])
+        .domain([0, d3.max(data, d => d['Mismanaged plastic waste per capita (kg per year)'])]);
+
+      // Draw bars
+      svg.selectAll(".bar")
+        .data(data)
+        .enter().append("rect")
+        .attr("class", "bar")
+        .attr("x", d => x(d.Entity))
+        .attr("y", d => y(d['Mismanaged plastic waste per capita (kg per year)']))
+        .attr("width", x.bandwidth())
+        .attr("height", d => height - y(d['Mismanaged plastic waste per capita (kg per year)']))
+        .on("mouseover", function(event, d) {
+          const tooltip = d3.select(".tooltip");
+          tooltip.style("display", "block");
+          tooltip.html(`<strong>${d.Entity}</strong>: ${d['Mismanaged plastic waste per capita (kg per year)']} kg`);
+          tooltip.style("left", (event.pageX) + "px");
+          tooltip.style("top", (event.pageY - 28) + "px");
+        })
+        .on("mouseout", function() {
+          d3.select(".tooltip").style("display", "none");
+        });
+
+      // Draw x-axis
+      svg.append("g")
+        .attr("class", "axis axis--x")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x))
+        .selectAll("text")
+        .attr("transform", "rotate(-45)")
+        .style("text-anchor", "end")
+        .attr("dx", "-0.8em")
+        .attr("dy", "-0.15em");
+
+      // Draw y-axis
+      svg.append("g")
+        .attr("class", "axis axis--y")
+        .call(d3.axisLeft(y));
+      
+      // Add title
+      svg.append("text")
+        .attr("class", "title")
+        .attr("x", width / 2)
+        .attr("y", -margin.top / 2)
+        .text("Mismanaged Plastic Waste Per Capita by Entity (2019)");
+    }).catch(function(error) {
+      console.log(error);
+    });
+  </script>
+</body>
+</html>
