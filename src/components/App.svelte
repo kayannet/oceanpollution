@@ -73,7 +73,7 @@
 
         <div class = 'barChart1'>
             <BarChart {data} />
-            <p class="caption1"> Here, we can see the amount of mismanaged plastic (in kg/year) in 2019.</p>
+            <p class="caption1"> Here, we can see the amount of mismanaged plastic (in kg/year) in 2019. <br> note: zoom out for now if you can't see y-axis</p>
         </div>
 
 
