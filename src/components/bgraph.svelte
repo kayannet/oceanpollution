@@ -1,43 +1,64 @@
-<!-- BarChart.svelte -->
-
 <script>
   import { scaleBand, scaleLinear } from "d3-scale";
-  import { onMount } from 'svelte';
-  import { csv } from 'd3-fetch';
+  import { onMount } from "svelte";
 
-  let data = []; // Initialize data with an empty array
-
-  // Load data from CSV file
-  onMount(async () => {
-    const response = await fetch("/static/csv data/mismanaged-plastic-waste-per-capita.csv"); // Adjust the path to your CSV file
-    const csvData = await response.text();
-    data = d3.csvParse(csvData);
-    createChart(); // Call createChart function after loading the data
-  });
+  export let data;
 
   let width = 800;
   let height = 600;
 
-  const margin = { top: 20, right: 20, bottom: 20, left: 180 };
+  const margin = { top: 20, right: 20, bottom: 50, left: 80 };
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
 
-  $: xDomain = data.map((d) => d.Entity);
-  $: yDomain = data.map((d) => +d['Mismanaged plastic waste per capita (kg per year)']);
+  let xDomain, yDomain, xScale, yScale;
 
-  $: xScale = scaleLinear().domain([0, Math.max(...yDomain)]).range([0, innerWidth]);
-  $: yScale = scaleBand().domain(xDomain).range([0, innerHeight]).padding(0.1);
+  onMount(() => {
+    xDomain = data.map((d) => d.Entity);
+    yDomain = data.map((d) => +d.Value);
 
-  function createChart() {
-    // The rest of your chart creation code
-    // Make sure to use reactive variables (prefixed with $:) to update the chart when data changes
+    xScale = scaleBand().domain(xDomain).range([0, innerWidth]).padding(0.1);
+    yScale = scaleLinear()
+      .domain([0, Math.max(...yDomain)])
+      .range([innerHeight, 0]);
+  });
+
+  function handleMouseOver(event, d) {
+    const rect = event.target;
+    const value = d.Value;
+
+    rect.setAttribute("fill", "orange");
+
+    const tooltip = document.getElementById("tooltip");
+    tooltip.style.display = "block";
+    tooltip.style.left = event.clientX + "px";
+    tooltip.style.top = event.clientY + "px";
+    tooltip.textContent = `Value: ${value}`;
+  }
+
+  function handleMouseOut(event) {
+    const rect = event.target;
+    rect.setAttribute("fill", "steelblue");
+
+    const tooltip = document.getElementById("tooltip");
+    tooltip.style.display = "none";
   }
 </script>
 
 <svg {width} {height}>
   <g transform={`translate(${margin.left},${margin.top})`}>
     {#each data as d}
-      <!-- Render bars and labels here -->
+      <rect
+        x={xScale(d.Entity)}
+        y={yScale(d.Value)}
+        width={xScale.bandwidth()}
+        height={innerHeight - yScale(d.Value)}
+        fill="steelblue"
+        on:mouseover={(event) => handleMouseOver(event, d)}
+        on:mouseout={handleMouseOut}
+      />
     {/each}
   </g>
 </svg>
+
+<div id="tooltip" style="position: absolute; display: none; background-color: white; padding: 5px; border: 1px solid black;"></div>
