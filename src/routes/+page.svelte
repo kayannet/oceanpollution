@@ -4,6 +4,7 @@
   import App from '../components/App.svelte'
   import BarChart from '../components/BarChart.svelte';
   import Bgraph from '../components/bgraph1.svelte';
+  import Globe from '../components/Globe.svelte'
 </script>
 
 

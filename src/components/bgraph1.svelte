@@ -7,9 +7,9 @@
   const dispatch = createEventDispatcher();
 
   let width = 1000;
-  let height = 2800;
+  let height = 3000;
 
-  const margin = { top: 20, right: 20, bottom: 20, left: 200 }; // Increased bottom margin for better tooltip display
+  const margin = { top: 20, right: 20, bottom: 20, left: 220 }; // Increased bottom margin for better tooltip display
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
 
@@ -69,6 +69,8 @@
         />
       {/each}
     </g>
+
+   
   </svg>
 <!-- </div> -->
 

@@ -9,18 +9,19 @@
     // import Bcharthtml from "./barg.html";
     import data from "./data.js";
     import BarChart from "./bgraph1.svelte";
+    import Globe from "./Globe.svelte";
     
 	let scroll;
 	let speed = 4
     let width, height;
 
     const threshold = 1000
-
-
-
 </script>
 
+
 <svelte:window bind:scrollY={scroll} />
+
+
 
 <h1>{scroll}</h1>
 
@@ -70,10 +71,27 @@
         <div>        
             <p class = 'text25'> *something about how plastic is <br> bad for environment and <br> how pollution is so bad</p>
         </div>
-
-        <div class = 'barChart1'>
+        <!-- FIRST VISUALIZATION -->
+        <div class = 'barChart1' style:background="transparent">
             <BarChart {data} />
+        </div>
+
+        <div>
             <p class="caption1"> Here, we can see the amount of mismanaged plastic (in kg/year) in 2019. <br> note: zoom out for now if you can't see y-axis</p>
+
+        </div>
+
+        <!-- SECOND VISUALIZATION -->
+        <div class = 'globe-container' style:background="#edede9">
+            <div class = 'globe'>
+                <Globe />
+
+            </div>
+        </div>
+
+        <div>
+            <p class="caption1"> Here, we can see the amount of mismanaged plastic (in kg/year) in 2019. <br> note: zoom out for now if you can't see y-axis</p>
+
         </div>
 
 
@@ -215,23 +233,55 @@
 		z-index: 11;
     }
     .caption1{
-        top: -2700px;
-        left: 1500px;
+        top: -1320px;
+        left: 1000px;
         transform: translate(-50%, -50%); /* Translate the text to center it properly */
+        /* position: -webkit-sticky; */
 		position: relative;
         font-family: 'Futura';
+        background-color: red; /* Ensure it stands out against the chart */
+
         font-size: 25px;
         color: white;
         text-align: Left;
 		z-index: 1;
     }
     .barChart1{
-        top: -800px;
-        left: -400px;
+        height: 100%;
+		width:  100%;
+		margin-bottom: 0rem;
         position: relative;
-        max-width: 1000px;
-        max-height: 1000px;
+        /* margin: 0; */
+        z-index: 9;
+        overflow: auto;
 
+
+        top: -800px;
+        left: -500px;
+        position: relative;
+        max-width: 1050px;
+        max-height: 1000px;
+        border-style: solid;
+
+    }
+    .globe-container {
+        position: relative;
+        top: -800px;
+        left: -525px;
+        width: 1000px; /* Adjust the width as needed */
+        height: 240%; /* Make it full height */
+        background: gray; /* Background color */
+        z-index: 999; /* Ensure it's on top of other elements */
+        overflow-y: auto; /* Allow scrolling if content exceeds height */
+        border-style: solid;
+        border-radius: 1%;
+        border-width: 4px;
+        border-color: black;
+    }
+
+    .globe {
+        width: 100%;
+        height: 100%;
     }
 
 	.box {
