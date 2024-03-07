@@ -1,118 +1,280 @@
 <script>
-	import { scaleLinear } from 'd3-scale';
+	import { onMount } from 'svelte';
+	import * as d3 from 'd3';
+  
+	// Parse the provided data
+	let data = `Entity,Code,Year,Mismanaged plastic waste per capita (kg per year)
+	  Africa,,2019,10.46592827
+	  Albania,ALB,2019,24.23915307
+	  Algeria,DZA,2019,17.75899473
+	  Angola,AGO,2019,7.445278869
+	  Antigua and Barbuda,ATG,2019,6.463917526
+	  Argentina,ARG,2019,10.40191152
+	  Asia,,2019,8.667235444
+	  Australia,AUS,2019,0.20894338
+	  Bahamas,BHS,2019,5.686375321
+	  Bahrain,BHR,2019,0.635588056
+	  Bangladesh,BGD,2019,6.268108387
+	  Barbados,BRB,2019,3.038327526
+	  Belgium,BEL,2019,0.19793743
+	  Belize,BLZ,2019,15.43846154
+	  Benin,BEN,2019,11.29861876
+	  Bosnia and Herzegovina,BIH,2019,16.82853681
+	  Brazil,BRA,2019,15.62046908
+	  Brunei,BRN,2019,1.598152425
+	  Bulgaria,BGR,2019,0.445285714
+	  Burkina Faso,BFA,2019,15.61429064
+	  Cambodia,KHM,2019,15.01152423
+	  Cameroon,CMR,2019,22.36814036
+	  Canada,CAN,2019,0.630483013
+	  Cape Verde,CPV,2019,6.487272727
+	  Chile,CHL,2019,1.623417054
+	  China,CHN,2019,8.559308412
+	  Colombia,COL,2019,1.697570472
+	  Comoros,COM,2019,69.51586369
+	  Congo,COG,2019,12.13361829
+	  Costa Rica,CRI,2019,1.139263074
+	  Cote d'Ivoire,CIV,2019,11.33934751
+	  Croatia,HRV,2019,4.247941889
+	  Cyprus,CYP,2019,0.698081735
+	  Democratic Republic of Congo,COD,2019,15.78193592
+	  Denmark,DNK,2019,0.067567568
+	  Djibouti,DJI,2019,10.56365503
+	  Dominica,DMA,2019,15.02777778
+	  Dominican Republic,DOM,2019,18.06667287
+	  East Timor,TLS,2019,13.33642691
+	  Ecuador,ECU,2019,6.262058248
+	  Egypt,EGY,2019,14.29961748
+	  El Salvador,SLV,2019,3.361171367
+	  Equatorial Guinea,GNQ,2019,6.934365782
+	  Eritrea,ERI,2019,24.0457535
+	  Estonia,EST,2019,0.452488688
+	  Europe,,2019,1.580226046
+	  Fiji,FJI,2019,4.334831461
+	  Finland,FIN,2019,0.473788865
+	  France,FRA,2019,0.426531552
+	  French Guiana,GUF,2019,0.432989691
+	  Gabon,GAB,2019,2.757017948
+	  Gambia,GMB,2019,14.9467632
+	  Georgia,GEO,2019,0.076807606
+	  Germany,DEU,2019,0.606774669
+	  Ghana,GHA,2019,17.09520679
+	  Greece,GRC,2019,0.430249212
+	  Grenada,GRD,2019,12.11607143
+	  Guadeloupe,GLP,2019,0.405
+	  Guatemala,GTM,2019,17.68972186
+	  Guinea,GIN,2019,11.58852087
+	  Guinea-Bissau,GNB,2019,10.65330557
+	  Guyana,GUY,2019,35.20434227
+	  Haiti,HTI,2019,21.12829619
+	  Honduras,HND,2019,14.97999179
+	  Hong Kong,HKG,2019,0.777434104
+	  Iceland,ISL,2019,0.445427729
+	  India,IND,2019,9.509608
+	  Indonesia,IDN,2019,3.045657286
+	  Iran,IRN,2019,5.981679813
+	  Iraq,IRQ,2019,12.51007377
+	  Ireland,IRL,2019,0.547931176
+	  Israel,ISR,2019,0.711351098
+	  Italy,ITA,2019,0.640842279
+	  Jamaica,JAM,2019,16.84972863
+	  Japan,JPN,2019,0.281286458
+	  Jordan,JOR,2019,12.31686795
+	  Kazakhstan,KAZ,2019,2.92393941
+	  Kenya,KEN,2019,5.514455815
+	  Kiribati,KIR,2019,0.627118644
+	  Kuwait,KWT,2019,0.627525553
+	  Latvia,LVA,2019,0.500786576
+	  Lebanon,LBN,2019,6.800175029
+	  Lesotho,LSO,2019,14.30164706
+	  Liberia,LBR,2019,8.087907636
+	  Libya,LBY,2019,27.81983178
+	  Lithuania,LTU,2019,0.375724638
+	  Madagascar,MDG,2019,0.936260151
+	  Malaysia,MYS,2019,25.491518
+	  Maldives,MDV,2019,0.11299435
+	  Malta,MLT,2019,0.588636364
+	  Marshall Islands,MHL,2019,0.271186441
+	  Martinique,MTQ,2019,0.369680851
+	  Mauritania,MRT,2019,4.594785683
+	  Mauritius,MUS,2019,0.235433071
+	  Mexico,MEX,2019,3.375352731
+	  Monaco,MCO,2019,0.128205128
+	  Montenegro,MNE,2019,0.025477707
+	  Morocco,MAR,2019,8.101776705
+	  Mozambique,MOZ,2019,14.30652704
+	  Myanmar,MMR,2019,8.038338422
+	  Namibia,NAM,2019,8.373547094
+	  Netherlands,NLD,2019,0.890975025
+	  New Zealand,NZL,2019,0.358352498
+	  Nicaragua,NIC,2019,16.93583868
+	  Nigeria,NGA,2019,9.698005613
+	  North America,,2019,5.257716269
+	  North Korea,PRK,2019,0.01254578
+	  Norway,NOR,2019,0.277746793
+	  Oceania,,2019,3.240267755
+	  Oman,OMN,2019,0.251457286
+	  Pakistan,PAK,2019,6.21734837
+	  Palau,PLW,2019,6.444444444
+	  Palestine,PSE,2019,0.427424212
+	  Panama,PAN,2019,8.558407913
+	  Papua New Guinea,PNG,2019,13.62101185
+	  Peru,PER,2019,4.315995078
+	  Philippines,PHL,2019,37.23096275
+	  Poland,POL,2019,0.372782939
+	  Portugal,PRT,2019,0.373362018
+	  Puerto Rico,PRI,2019,0.440845551
+	  Qatar,QAT,2019,0.540960452
+	  Reunion,REU,2019,0.262092238
+	  Romania,ROU,2019,2.693570875
+	  Russia,RUS,2019,2.491149775
+	  Saint Kitts and Nevis,KNA,2019,1.830188679
+	  Saint Lucia,LCA,2019,23.36612022
+	  Saint Vincent and the Grenadines,VCT,2019,11.12612613
+	  Samoa,WSM,2019,8.822335025
+	  Sao Tome and Principe,STP,2019,9.623255814
+	  Saudi Arabia,SAU,2019,0.209402084
+	  Senegal,SEN,2019,4.029209622
+	  Seychelles,SYC,2019,0.336734694
+	  Sierra Leone,SLE,2019,11.67784462
+	  Singapore,SGP,2019,0.425223983
+	  Slovakia,SVK,2019,0.315008246
+	  Slovenia,SVN,2019,0.405964406
+	  Solomon Islands,SLB,2019,5.253731343
+	  Somalia,SOM,2019,0.002719679
+	  South Africa,ZAF,2019,12.09855186
+	  South Korea,KOR,2019,0.237306003
+	  Spain,ESP,2019,0.435415196
+	  Sri Lanka,LKA,2019,7.290658413
+	  Sudan,SDN,2019,18.25672109
+	  Suriname,SUR,2019,39.47160069
+	  Sweden,SWE,2019,0.423973695
+	  Syria,SYR,2019,0.029408319
+	  Taiwan,TWN,2019,0.315554808
+	  Tanzania,TZA,2019,29.59055254
+	  Thailand,THA,2019,19.55720564
+	  Togo,TGO,2019,15.06842366
+	  Tonga,TON,2019,6.403846154
+	  Trinidad and Tobago,TTO,2019,52.42939068
+	  Tunisia,TUN,2019,24.7574177
+	  Turkey,TUR,2019,19.85029366
+	  Ukraine,UKR,2019,8.950697822
+	  United Arab Emirates,ARE,2019,0.525534746
+	  United Kingdom,GBR,2019,0.442973493
+	  United States,USA,2019,0.812815117
+	  Uruguay,URY,2019,26.75332178
+	  Venezuela,VEN,2019,23.54576378
+	  Vietnam,VNM,2019,11.53604528
+	  Western Sahara,ESH,2019,7.068728522
+	  World,OWID_WRL,2019,8.008550858
+	  Yemen,YEM,2019,10.00401207
+	  Zimbabwe,ZWE,2019,35.83919426`;
+  
+	let parsedData = d3.csvParse(data);
+  
+	onMount(() => {
+	  const svg = d3.select('#chart')
+		.append('svg')
+		.attr('width', 2500)
+		.attr('height', 1000);
+  
+	  const margin = { top: 40, right: 20, bottom: 100, left: 60 };
+	  const width = +svg.attr('width') - margin.left - margin.right;
+	  const height = +svg.attr('height') - margin.top - margin.bottom;
+  
+	  const x = d3.scaleBand()
+		.domain(parsedData.map(d => d.Code))
+		.range([margin.left, width - margin.right])
+		.padding(0.1);
+  
+	  const y = d3.scaleLinear()
+		.domain([0, d3.max(parsedData, d => parseFloat(d["Mismanaged plastic waste per capita (kg per year)"]))])
+		.nice()
+		.range([height - margin.bottom, margin.top]);
+  
+	  svg.append('g')
+		.attr('transform', `translate(0, ${height - margin.bottom})`)
+		.call(d3.axisBottom(x).tickSizeOuter(0))
+		.selectAll('text')
+		.attr('transform', 'rotate(-45)')
+		.style('text-anchor', 'end')
+		.style('font-size', '10px');
+  
+	  svg.append('g')
+		.attr('transform', `translate(${margin.left}, 0)`)
+		.call(d3.axisLeft(y));
+  
+	  svg.selectAll('rect')
+		.data(parsedData)
+		.enter()
+		.append('rect')
+		.attr('x', d => x(d.Code))
+		.attr('y', d => y(parseFloat(d["Mismanaged plastic waste per capita (kg per year)"])))
+		.attr('width', x.bandwidth())
+		.attr('height', d => height - margin.bottom - y(parseFloat(d["Mismanaged plastic waste per capita (kg per year)"])))
+		.attr('fill', 'steelblue')
+		.on('mouseover', function(d) {
+		  d3.select(this).attr('fill', 'orange');
+		  // Display data point
+		  const xPos = +d3.select(this).attr('x') + x.bandwidth() / 2;
+		  const yPos = y(parseFloat(d["Mismanaged plastic waste per capita (kg per year)"])) - 10;
+		  svg.append('text')
+			.attr('class', 'tooltip')
+			.attr('x', xPos)
+			.attr('y', yPos)
+			.text(`${d.Entity}: ${d3.format(".2f")(parseFloat(d["Mismanaged plastic waste per capita (kg per year)"]))} kg`)
+			.attr('text-anchor', 'middle')
+			.attr('font-size', '12px')
+			.attr('fill', 'black');
+		})
+		.on('mouseover', function(d) {
+			d3.select(this).attr('fill', 'orange');
+			// Display data point
+			const xPos = +d3.select(this).attr('x') + x.bandwidth() / 2;
+			const yPos = y(parseFloat(d["Mismanaged plastic waste per capita (kg per year)"])) - 10;
+			const tooltip = svg.append('text')
+				.attr('class', 'tooltip')
+				.text(`${d.Entity}: ${d3.format(".2f")(parseFloat(d["Mismanaged plastic waste per capita (kg per year)"]))} kg`)
+				.attr('text-anchor', 'middle')
+				.attr('font-size', '12px')
+				.attr('fill', 'black')
+				.style('pointer-events', 'none'); // Ensures the tooltip doesn't interfere with mouse events
 
-	const points = [
-		{ year: 1990, birthrate: 16.7 },
-		{ year: 1995, birthrate: 14.6 },
-		{ year: 2000, birthrate: 14.4 },
-		{ year: 2005, birthrate: 14 },
-		{ year: 2010, birthrate: 13 },
-		{ year: 2015, birthrate: 12.4 }
-	];
+			// Update tooltip position based on mouse coordinates
+			svg.on('mousemove', function(event) {
+				const tooltipWidth = tooltip.node().getBBox().width;
+				const tooltipHeight = tooltip.node().getBBox().height;
+				const tooltipX = event.offsetX + 10; // Adjusted for padding
+				const tooltipY = event.offsetY - 20; // Adjusted for padding
 
-	const xTicks = [1990, 1995, 2000, 2005, 2010, 2015];
-	const yTicks = [0, 5, 10, 15, 20];
-	const padding = { top: 20, right: 15, bottom: 20, left: 25 };
-
-	let width = 500;
-	let height = 200;
-
-	function formatMobile(tick) {
-		return "'" + tick.toString().slice(-2);
+				tooltip.attr('x', tooltipX)
+					.attr('y', tooltipY);
+			});
+		})
+		.on('mouseout', function() {
+		  d3.select(this).attr('fill', 'steelblue');
+		  // Remove tooltip
+		  svg.select('.tooltip').remove();
+		});
+	});
+  </script>
+  
+  <style>
+	rect:hover {
+	  cursor: pointer;
 	}
-
-	$: xScale = scaleLinear()
-		.domain([0, xTicks.length])
-		.range([padding.left, width - padding.right]);
-
-	$: yScale = scaleLinear()
-		.domain([0, Math.max.apply(null, yTicks)])
-		.range([height - padding.bottom, padding.top]);
-
-	$: innerWidth = width - (padding.left + padding.right);
-	$: barWidth = innerWidth / xTicks.length;
-</script>
-
-<h2>US birthrate by year</h2>
-
-<div class="chart" bind:clientWidth={width} bind:clientHeight={height}>
-	<svg>
-		<!-- y axis -->
-		<g class="axis y-axis">
-			{#each yTicks as tick}
-				<g class="tick tick-{tick}" transform="translate(0, {yScale(tick)})">
-					<line x2="100%" />
-					<text y="-4">{tick} {tick === 20 ? ' per 1,000 population' : ''}</text>
-				</g>
-			{/each}
-		</g>
-
-		<!-- x axis -->
-		<g class="axis x-axis">
-			{#each points as point, i}
-				<g class="tick" transform="translate({xScale(i)},{height})">
-					<text x={barWidth / 2} y="-4">{width > 380 ? point.year : formatMobile(point.year)}</text>
-				</g>
-			{/each}
-		</g>
-
-		<g class="bars">
-			{#each points as point, i}
-				<rect
-					x={xScale(i) + 2}
-					y={yScale(point.birthrate)}
-					width={barWidth - 4}
-					height={yScale(0) - yScale(point.birthrate)}
-				/>
-			{/each}
-		</g>
-	</svg>
-</div>
-
-<style>
-	h2 {
-		text-align: center;
+  
+	#chart {
+	  margin-top: 50px;
 	}
+  </style>
 
-	.chart {
-		width: 100%;
-		max-width: 1000;
-		margin: 0 auto;
-	}
 
-	svg {
-		position: relative;
-		width: 1000px;
-		height: 600px;
-	}
+  <div >
+	<h2 class = 'title'>Plastic Waste Per Capita by Country</h2>
+  </div>
+  
+  <div id="chart"></div>
 
-	.tick {
-		font-family: Helvetica, Arial;
-		font-size: 0.725em;
-		font-weight: 200;
-	}
 
-	.tick line {
-		stroke: #e2e2e2;
-		stroke-dasharray: 2;
-	}
-
-	.tick text {
-		fill: #ccc;
-		text-anchor: start;
-	}
-
-	.tick.tick-0 line {
-		stroke-dasharray: 0;
-	}
-
-	.x-axis .tick text {
-		text-anchor: middle;
-	}
-
-	.bars rect {
-		fill: #a11;
-		stroke: none;
-		opacity: 0.65;
-	}
-</style>
+  

@@ -194,7 +194,7 @@
     }
     .map {
         position:absolute;
-        top: 0;
+        top: -110px;
         left: 0;
         width: 1000px;
         height: 1000px;
@@ -209,7 +209,7 @@
     * on the page. */
     .map-overlay {
         position: absolute;
-        bottom: 20px;
+        bottom: 30px;
         left: 0;
         background: transparent;
         margin-right: 10px;
