@@ -15,9 +15,9 @@
                 container: mapContainer,
                 style: "mapbox://styles/kqtran/cltevc8s500sh01oifnhb6u2z" ,  
                 center: [-79.035728, 35.932522], // Chapel Hill Public Library
-                zoom: 2.5,
-                minZoom: 2,
-                maxZoom: 5,
+                zoom: 1.5,
+                minZoom: 1.5,
+                maxZoom: 1.5,
             });
         
         
@@ -100,53 +100,7 @@
                     <h3 class = 'sub'> Hover over a country!</h3>
                 </div>
             </div>
-            <div class="map-overlay" bind:this = {legend} id="legend">
-                <!-- Manually created legend key with SVG -->
-                <h3 class = "legend"> Legend (percent of plastic waste that is emitted to the ocean) </h3>
-                <svg width="100" height="20">
-                    <rect x="0" y="0" width="20" height="20" fill="#f8f8f1" />
-                    <text x="25" y="15"> &lt; 0.5 </text>
-                </svg>
-
-                <svg width="100" height="20">
-                    <rect x="0" y="0" width="20" height="20" fill="#b8d5b8" />
-                    <text x="25" y="15">0.5-1.0</text>
-                </svg>
-
-                <svg width="100" height="20">
-                    <rect x="0" y="0" width="20" height="20" fill="#7bb791" />
-                    <text x="25" y="15">1.0-1.5</text>
-                </svg>
-
-                <svg width="100" height="20">
-                    <rect x="0" y="0" width="20" height="20" fill="#6ac5c8" />
-                    <text x="25" y="15">1.5-2.0</text>
-                </svg>
-
-                <svg width="100" height="20">
-                    <rect x="0" y="0" width="20" height="20" fill="#7dbcd9" />
-                    <text x="25" y="15">2.0-2.5</text>
-                </svg>
-
-                <svg width="100" height="20">
-                    <rect x="0" y="0" width="20" height="20" fill="#3f7b97" />
-                    <text x="25" y="15">2.5-5.0</text>
-                </svg>
-                <svg width="100" height="20">
-                    <rect x="0" y="0" width="20" height="20" fill="#464285" />
-                    <text x="25" y="15">5.0-10.0</text>
-                </svg>
-                <svg width="100" height="20">
-                    <rect x="0" y="0" width="20" height="20" fill="#a165a4" />
-                    <text x="25" y="15">10.0-15.0</text>
-                </svg>
-                <svg width="100" height="20">
-                    <rect x="0" y="0" width="20" height="20" fill="#cd2d85" />
-                    <text x="25" y="15">15.0 &gt;</text>
-                </svg>
-
-
-            </div>
+            
         </div>
     </main>
 
@@ -184,22 +138,29 @@
     
 
     .title {
-        font-size: 30px;
+        font-size: 23px;
+        margin-left: 10px;
     }
     
     .map-wrap {
         position: absolute;
+        top: 200px;
         width: 100%;
         height: 100%; /* Adjust height as needed */
+        border: none !important; /* Override border */
+
     }
+
     .map {
         position:absolute;
-        top: -110px;
+        top: -200px;
         left: 0;
-        width: 1000px;
-        height: 1000px;
+        width: 100%;
+        height: 100%;
         margins: 0;
         padding: 0; /* Ensure no padding */
+        border: none !important; /* Override border */
+
 
     }
     
@@ -207,6 +168,7 @@
     * Set rules for how the map overlays
     * (information box and legend) will be displayed
     * on the page. */
+   
     .map-overlay {
         position: absolute;
         bottom: 30px;
@@ -215,25 +177,32 @@
         margin-right: 10px;
         font-family: Helvectia, sans-serif;
         overflow: auto;
-        border-radius: 3px;
+        /* border-radius: 3px; */
         padding: 5px;
         height: auto;
+        border: none !important; /* Override border */
+
     }
-    
+
+
+    /* title */
     #features {
-        top: 0;
-        height: 150px;
+        top: -210px;
+        height: 10px;
         margin-top: 10px;
         width: fit-content;
         height: fit-content;
+        border: none !important; /* Override border */
+
     }
     
     #legend {
         padding: 15px;
         box-shadow: 0 1px 2px rgba(0 0 0 0.1);
-        line-height: 18px;
+        line-height: 20px;
         /* height: 250px; */
-        margin-bottom: 0px;
+        margin-bottom: -19px;
+        max-width: fit;
         width: fit;
     }
     

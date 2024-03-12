@@ -6,6 +6,9 @@
   import Bgraph from '../components/bgraph1.svelte';
   import Globe from '../components/Globe.svelte';
   import PwBar from  '../components/PlasticWasteBar.svelte'
+  import Scatter from '../components/ScatterPlot.svelte'
+  import ContinentsBar from '../components/TopContinentsBar.svelte'
+
   
 </script>
 
