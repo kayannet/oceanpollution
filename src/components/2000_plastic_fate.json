@@ -1,0 +1,92 @@
+[
+    {
+      "": 0,
+      "entity": "Americas (excl. USA)",
+      "year": 2000,
+      "recycled": 4.721963,
+      "incinerated": 1.2200574,
+      "littered/mismanaged": 32.702644,
+      "landfilled": 61.355328
+    },
+    {
+      "": 20,
+      "entity": "Asia (excl. China and India)",
+      "year": 2000,
+      "recycled": 3.8260822,
+      "incinerated": 10.439383,
+      "littered/mismanaged": 36.90847,
+      "landfilled": 48.82608
+    },
+    {
+      "": 40,
+      "entity": "China",
+      "year": 2000,
+      "recycled": 4.7811875,
+      "incinerated": 8.821573,
+      "littered/mismanaged": 60.803017,
+      "landfilled": 25.594213
+    },
+    {
+      "": 60,
+      "entity": "Europe",
+      "year": 2000,
+      "recycled": 4.4350724,
+      "incinerated": 14.542094,
+      "littered/mismanaged": 12.974696,
+      "landfilled": 68.048134
+    },
+    {
+      "": 80,
+      "entity": "India",
+      "year": 2000,
+      "recycled": 5.072351,
+      "incinerated": 1.6886452,
+      "littered/mismanaged": 68.140015,
+      "landfilled": 25.098991
+    },
+    {
+      "": 100,
+      "entity": "Middle East & North Africa",
+      "year": 2000,
+      "recycled": 2.8385525,
+      "incinerated": 0.4083155,
+      "littered/mismanaged": 46.085022,
+      "landfilled": 50.668125
+    },
+    {
+      "": 120,
+      "entity": "Oceania",
+      "year": 2000,
+      "recycled": 3.8013995,
+      "incinerated": 9.345559,
+      "littered/mismanaged": 11.801067,
+      "landfilled": 75.05197
+    },
+    {
+      "": 140,
+      "entity": "Sub-Saharan Africa",
+      "year": 2000,
+      "recycled": 3.0122259,
+      "incinerated": 0,
+      "littered/mismanaged": 69.32282,
+      "landfilled": 27.664953
+    },
+    {
+      "": 160,
+      "entity": "United States",
+      "year": 2000,
+      "recycled": 2.3450744,
+      "incinerated": 15.26663,
+      "littered/mismanaged": 7.976449,
+      "landfilled": 74.41184
+    },
+    {
+      "": 180,
+      "entity": "World",
+      "year": 2000,
+      "recycled": 3.7033863,
+      "incinerated": 10.872603,
+      "littered/mismanaged": 26.019512,
+      "landfilled": 59.4045
+    }
+  ]

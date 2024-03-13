@@ -187,7 +187,7 @@
 
     /* title */
     #features {
-        top: -210px;
+        top: -200px;
         height: 10px;
         margin-top: 10px;
         width: fit-content;

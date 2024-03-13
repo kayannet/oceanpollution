@@ -8,6 +8,8 @@
   import PwBar from  '../components/PlasticWasteBar.svelte'
   import Scatter from '../components/ScatterPlot.svelte'
   import ContinentsBar from '../components/TopContinentsBar.svelte'
+  import London from '../components/London.svelte'
+
 
   
 </script>

@@ -12,6 +12,7 @@
     import data from "./data.js";
     import BarChart from "./bgraph1.svelte";
     import Globe from "./Globe.svelte";
+    import PWFate from "./London.svelte"
     
 	let scroll;
 	let speed = 4
@@ -115,7 +116,7 @@
 
 
         <!-- SECOND VISUALIZATION -->
-        <div class = 'globe-container'   > <!--style:/background="#edede9" -->
+        <div class = 'globe-container' style:transform={`translate3d(0, ${scroll * -0.4}px, 0)`}   > <!--style:/background="#edede9" -->
             <div class = 'globe'>
                 <Globe />
             </div>
@@ -185,8 +186,7 @@
         </div>
 
 
-        <!-- style:transform={`translate3d(${scroll * -0.3}px, ${scroll * -0.3}px, ${scroll * -2}px)`} -->
-
+        <!-- FISH TRANSITION -->
         <div style:transform={`translate3d(${scroll * -0.4}px, ${scroll * -0.5}px, ${scroll * -0.1}px)`} style:background="">
             <div class = fish2>
                 <img src = {swimmingFish2} alt = 'swimming_fish2' style="max-width: 100%; max-height: 100%;">
@@ -197,6 +197,35 @@
                 <img src = {swimmingFish2} alt = 'swimming_fish2' style="max-width: 100%; max-height: 100%;">
             </div>
         </div>
+        
+
+
+        <!-- THIRD VISUALIZATION-->
+        <div class = 'barChartTitleContainer2'>
+            <div class = 'barChart2' style:background="transparent">
+                <PWFate/>
+            </div>
+
+            <div class = 'caption3Box'>
+                <p class="caption3">  Here, we can see the average kilograms of mismanged plastic waste per person in  
+                    2019 from each country. 
+                    
+                    Plastic has become such a staple in our lives that such that 
+                    it's easy to overlook its unnatural presence in the natural world. 
+                    The reality is 
+                    that plastic is not native to wildlife habitats. Unfortunately, out of sight often
+                    means out of mind, but the staggering volume of plastic waste accumulating in our oceans 
+                    poses a grave threat to hundreds of species, pushing them 
+                    towards endangerment and extinction.
+                </p>
+    
+            </div>
+
+           
+        </div>
+       
+        
+
 
        
 
@@ -345,7 +374,7 @@
 		z-index: 11;
     }
 
-    .caption1, .caption2 {
+    .caption1, .caption2, .caption3 {
         display: flex;
         top: 0;
         left: 0;
@@ -361,6 +390,25 @@
 		z-index: 1;
     }
 
+    .caption3Box{
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center-align images horizontally */
+        align-items: center; /* Center-align images vertically */
+
+        position: relative;
+        top: 100px;
+        left: 550px;
+        max-height: 50%;
+        max-width: 25%;
+        background-color: transparent;
+
+    }
+
+    .caption3{
+        margin: 20px;
+    }
+
     .caption2Box{
         display: flex;
         flex-direction: column;
@@ -368,7 +416,7 @@
         align-items: center; /* Center-align images vertically */
 
         position: relative;
-        top: 10px;
+        top: 100px;
         left: 550px;
         max-height: 50%;
         max-width: 25%;
@@ -435,6 +483,19 @@
         z-index: 9;
         background-color: tranparent;
     }
+    .barChartTitleContainer2{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        top: -2000px;
+        left: 0;
+		height: 100%;
+		width:  100%;
+		margin-bottom: 0rem;
+        position: relative;
+        z-index: 9;
+        background-color: tranparent;
+    }
 
     .barChart1{
         position: relative; /* Position images relative to the imageBox */
@@ -451,20 +512,25 @@
         left: 0;
         align-items: center;
     }
+
     .barChartTitle1{
         top: 0%;
         left: 0%;
         position: relative;
         font-size: 40px;
         font-family: Futura;
-
     }
 
+
+
+    
+
     .globe-container {
-        display: flex;
+        /* display: flex; */
         flex-direction: column;
         align-items: center;
-        top: -600px;
+        top: 455px;
+        left: 100px;
 		height: 300%;
 		width:  80%;
 		margin-bottom: 0rem;
@@ -493,7 +559,7 @@
     }
 
     .globe {
-        display: flex;
+        /* display: flex; */
         position: relative; /* Position images relative to the imageBox */
         width: 100%; /* Adjust as needed */
         height: 150%; /* Maintain aspect ratio */
@@ -504,7 +570,7 @@
         border-style: solid;
         margin-bottom: 0rem;
 
-        top: 0;
+        top: 0px;
         left: -200px;
         align-items: center;
         border: none; /* Remove border */
@@ -515,6 +581,7 @@
         font-family: Futura;
         margin-bottom:0px;
         left: -380px;
+        top: 100p;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -526,11 +593,12 @@
         font-family: Futura;
         margin-bottom: 15px;
         font-size: small;
-        left: 150px;
+        left: 190px;
+        top: 0px;
         position: relative;
         display: flex;
         flex-direction: row;
-        z-index: 12;
+        z-index: 8;
     }
 
     
@@ -581,8 +649,8 @@
 
     .fish2{
         left: 1300px;
-        top: 150px;
-        z-index: 10;
+        top: 400px;
+        z-index: 13;
     }
 
 
