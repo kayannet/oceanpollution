@@ -157,7 +157,6 @@
         left: 0;
         width: 100%;
         height: 100%;
-        margins: 0;
         padding: 0; /* Ensure no padding */
         border: none !important; /* Override border */
 
@@ -176,18 +175,19 @@
         background: transparent;
         margin-right: 10px;
         font-family: Helvectia, sans-serif;
-        overflow: auto;
+        overflow: hidden;
         /* border-radius: 3px; */
         padding: 5px;
         height: auto;
         border: none !important; /* Override border */
+        align: center;
 
     }
 
 
     /* title */
     #features {
-        top: -200px;
+        top: -100px;
         height: 10px;
         margin-top: 10px;
         width: fit-content;
