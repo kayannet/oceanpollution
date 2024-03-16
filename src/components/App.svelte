@@ -418,6 +418,7 @@
 		position: fixed;
         text-align: center;
 		z-index: 10;
+        color: #879ec4;
 	}
     h2{
         top: 20%;
