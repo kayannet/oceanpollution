@@ -76,7 +76,7 @@
 
   let tooltipText = '';
 
-  const margin = { top: 60, right: 40, bottom: 80, left: 150 };
+  const margin = { top: 60, right: 0, bottom: 80, left: 150 };
   const width = 1000 - margin.left - margin.right;
   const height = 600 - margin.top - margin.bottom;
 
@@ -125,7 +125,7 @@
       .attr('fill', 'steelblue')
       .style('font-family', 'Futura')
       .on('mouseover', (event, d) => {
-        tooltipText = `Year: ${d.year}, Value: ${d.value}`;
+        tooltipText = `Year: ${d.year}, Value: ${d.value/1000000} million tons`;
         d3.select(event.target).attr('r', 5);
         d3.select(event.target).attr('fill', 'darkred');
 
@@ -136,6 +136,7 @@
         d3.select(event.target).attr('fill', 'steelblue');
 
       });
+      
 
    
     svg
@@ -164,16 +165,18 @@
       .attr('fill', '#000')
       // .attr('font-weight', '')
       .attr('text-anchor', 'middle')
-      .text('Annual Plastic Production')
+      .text('Annual Plastic Production (tons)')
       .style('font-family', 'Futura')
 ;
   });
 
+  const xOffset = -200; // adjust the horizontal offset
+  const yOffset = -200; // adjust the vertical offset
   function handleMousemove(event) {
     const tooltip = document.getElementById('tooltip');
     if (tooltip) {
-      tooltip.style.left = `${event.clientX}px`;
-      tooltip.style.top = `${event.clientY}px`;
+      tooltip.style.left = `${event.clientX + xOffset}px`;
+      tooltip.style.top = `${event.clientY + yOffset}px`;
     }
   }
 </script>
@@ -181,9 +184,15 @@
 <style>
   #tooltip {
     position: absolute;
-    background: transparent;
-    padding: 5px;
-    pointer-events: none;
+		background: transparent;
+		padding: 5px;
+		pointer-events: none;
+		left: 150px;
+		top: 200px;
+		width: 300px; /* Adjust width as needed */
+		height: 50px; /* Adjust height as needed */
+		font-family: 'Futura';
+    
   }
 </style>
 

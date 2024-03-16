@@ -41,7 +41,7 @@
         <div class="box" style:transform={`translate3d(0, ${scroll * 0.4}px, 0)`} >
             <h2>PLASTIC POLLUTION</h2>
             <p class = "subtitle">BY: KAYANNE TRAN AND KETKI CHAKRADEO</p>
-            <a class = "writeUpLink" href="https://docs.google.com/document/d/1uq1zLNTzoAXbKIo428ckIYjbZcrKFskz5TGQw68XJc0/edit">Write Up Link</a>
+            <!-- <a class = "writeUpLink" href="https://docs.google.com/document/d/1uq1zLNTzoAXbKIo428ckIYjbZcrKFskz5TGQw68XJc0/edit">Write Up Link</a> -->
         </div>
 
         <!-- FIRST TEXT SECTION -->
@@ -49,8 +49,10 @@
             <p class="text">
                 Plastic is a synthetic material that can be molded when soft and formed into a solid shape.
                 It's strength, durability, and flexibility revolutionalized modern technology. <br>
-                Plastic is also easy and cheap to manufacture, hence the volume of it in nearly all of our products/
+                Plastic is also easy and cheap to manufacture, hence the volume of it in nearly all of our products.
+               
             </p>
+
         </div>
 
          <!-- SWIMMING FISH -->
@@ -83,6 +85,7 @@
         </div>
 
         <!-- SECOND TEXT SECTION -->
+        
 
         <div class="box2" style:background = 'transparent'>        
             <p class = 'text'> 
@@ -111,11 +114,10 @@
                 <img class = 'sealPlastic' src="https://t4.ftcdn.net/jpg/03/53/08/59/360_F_353085965_uVdDmO2uLFDwZDQ5Rw4W38vrXJyYK9n4.jpg" alt="Clipart" >
             </div>
             
-            <p class = 'text25'> Due to its sheer volume, improper plastic disposal has become a 
-                 major environmental issue. Millions of tons of plastic debris is
-                dumped into our oceans daily, so fish, turtles, birds, and other 
-                species can ingest or become entangled in the plastic, causing 
-                suffocation, starvation, and drowning. </p>
+            <p class = 'text25'> This pollution harms marine life through entanglement, ingestion, and habitat destruction. 
+                Marine animals often suffer injuries or death due to entanglement in plastic debris, while 
+                ingestion of plastics disrupts their feeding habits and can cause internal harm. 
+                This pollution also affects ecosystems, leading to chemical contamination, bioaccumulation of toxins, and altered habitats.. </p>
 
             <div class = 'imageBox2'>
                 <img class = 'turtlePlastic' src="https://media.istockphoto.com/id/1141999585/photo/underwater-global-problem-with-plastic-rubbish.jpg?s=612x612&w=0&k=20&c=LnHPndHoRgWZpR4Uu2E7n0fZJNuLqUEkHLYoc8Lo29o=" alt="Clipart" >
@@ -134,17 +136,18 @@
         </div>
 
         <div class = "caption2Box">
-            <p class="caption2">  Here, we can see the average kilograms of mismanged plastic waste per 
-                person in 2019 from each country. Mismanaged waste is defined by trash that is not 
-                recycled, incinerated, or kept in sealed landfills. 
-                <br> 
-                <br>
-                Plastic has become such a staple in our lives that such that 
-                it's easy to overlook its unnatural presence in the natural world. The reality is 
-                that plastic is not native to wildlife habitats. Unfortunately, out of sight often
-                means out of mind, but the staggering volume of plastic waste accumulating in our oceans 
-                poses a grave threat to hundreds of species, pushing them 
-                towards endangerment and extinction.
+            <p class="caption2">  Here, we can see the average kilograms of mismanged 
+                <br> plastic waste per person in 2019 from each country.
+                <br> Mismanaged waste is defined by trash that is not 
+                <br> recycled, incinerated, or kept in sealed landfills. 
+             </p>
+             <p class = "caption25">
+                While certain countries have a minimal mismanaged waste value, many others have very 
+                large amounts, which emphasizes that this issue is a global one. The disparity in waste 
+                management capabilities highlights the need for a coordinated global effort to address 
+                the challenges posed by plastic pollution. Countries with lower levels of mismanaged waste 
+                can share their best practices and provide support to those facing greater difficulties in 
+                managing their waste streams.
              </p>
 
         </div>
@@ -242,7 +245,32 @@
 
             </div>
 
+            <div class = "caption3Box" style:transform={`translate3d(0, ${scroll * -0.5}px, 0)`}>
+                <p class="caption3">  As we zoom into different regions on the map, it becomes 
+                    apparent that certain areas are particularly significant contributors to 
+                    plastic waste in the oceans. Countries in Asia, especially densely populated
+                    ones with rapidly growing economies like China, Indonesia, and the Philippines,
+                    are major sources of plastic pollution due to their large populations and 
+                    industrial activities. 
+                      
+                      <br>
+                      <br>
+                    Coastal nations, islands, and regions surrounded 
+                    by water also face challenges with waste management, as marine litter can
+                    easily enter the oceans through waterways and shorelines. 
+
+                    <br>
+                    <br>
+                    Furthermore, regions with inadequate waste infrastructure and limited recycling 
+                    capabilities often struggle to manage their plastic waste effectively, leading to 
+                    higher rates of mismanaged waste and plastic pollution.
+
+                </p>
+    
             </div>
+        </div>
+
+
 
         <!-- <div class = "caption3Box" style:transform={`translate3d(0, ${scroll * -0.4}px, 0)`}>
             <p class="caption3"> Here, we can see the average kilograms of mismanged plastic waste per person in  
@@ -287,11 +315,24 @@
 
             <div class = 'caption4Box'>
                 <p class="caption4">  Since 2000, there has been an overall decrease in mismanaged waste.
+                    Factors such as population growth, urbanization, industrialization, and changes in 
+                    consumption patterns can influence waste generation rates and the management of plastic waste.
+                     Efforts to reduce mismanaged waste require sustained commitment and investment in waste management 
+                     systems, recycling facilities, public education, and policies that promote sustainable practices.
+
                 </p>
     
             </div>
+            
+        </div>
 
-           
+            <div class = 'conclusionBox'>
+            <p class = 'conclusion'>
+                It's crucial to continue monitoring and addressing plastic pollution comprehensively on a global scale, 
+                recognizing that progress in waste management and pollution reduction is an ongoing endeavor that requires 
+                collaboration among governments, industries, communities, and individuals worldwide. If not for ourselves, 
+                then we must take action for the future generations to come after us.
+            </p>
         </div>
 
 
@@ -350,25 +391,28 @@
 
 
 <style>
-    
+    body {
+    overflow-x: hidden;
+    width: 100vw;
+    }
+
     .container {
+        width: 100vw;
         display: flex;
-        width: 100vw; /* Set the width to 100% of the viewport width */
-        overflow-x: hidden; /* Hide horizontal overflow */
+        overflow-x: hidden;
+
+
     }
 
     section {
-        /* margin: 0px; */
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;
-        width: 100vw;
+        max-width: 100vw;
         overflow-y: auto; /* Enable vertical scrolling */
-        overflow-x: hidden; /* Hide horizontal overflow */
-
-
+        /* overflow-x: hidden; */ /* Remove this line */
     }
 	h1 {
 		position: fixed;
@@ -405,13 +449,13 @@
         transform: translate(-50%, -50%); /* Translate the text to center it properly */
 		position: relative;
         font-family: 'Futura';
-        font-size: 25px;
+        font-size: 20px;
         color: white;
         text-align: center;
 		z-index: 10;
     }
     .text{
-        top: 160px;
+        top: 200px;
         left: 50%;
         transform: translate(-50%, -50%); /* Translate the text to center it properly */
 		position: relative;
@@ -447,7 +491,7 @@
 		z-index: 11;
     }
 
-    .caption1, .caption2, .caption3, .caption4, .text3 {
+    .caption1, .caption2, .caption25, .caption3, .caption4, .text3, .conclusion {
         display: flex;
         top: 0;
         left: 0;
@@ -464,8 +508,8 @@
     }
     .caption2{
         display: flex;
-        top: 100px;
-        left: 50%;
+        top: -500px;
+        left: 700px;
         transform: translate(-50%, -50%); /* Translate the text to center it properly */
 		position: relative;
         font-family: 'Futura';
@@ -473,12 +517,15 @@
         color: white;
         text-align: center;
 		z-index: 11;
-
-
+    }
+    .caption25{
+        top:-200px;
     }
     .text3box{
         position: relative;
         top: -400px;
+        max-width: 100vw;
+
     }
     .caption2Box{
         display: flex;
@@ -491,6 +538,8 @@
         left: 0;
         width: 90%;
         background-color: transparent;
+        max-width: 100vw;
+
 
     }
 
@@ -502,10 +551,10 @@
         align-items: center; /* Center-align images vertically */
 
         position: relative;
-        top: 250px;
-        left: 490px;
+        top: 1900px;
+        left: 780px;
         max-height: 50%;
-        max-width: 25%;
+        max-width: 40%;
         background-color: transparent;
 
     }
@@ -520,8 +569,23 @@
         top: 50px;
         left: 300px;
         max-height: 50%;
-        max-width: 25%;
+        max-width: 30%;
         background-color: transparent;
+
+    }
+
+    .conclusionBox{
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center-align images horizontally */
+        align-items: center; /* Center-align images vertically */
+
+        position: relative;
+        top: 90px;
+        left: 0;
+        width: 90%;
+        background-color: transparent;
+        max-width: 100vw;
 
     }
 
@@ -537,10 +601,10 @@
         align-items: center; /* Center-align images vertically */
 
         position: relative;
-        top: 0px;
-        left: 520px;
+        top: 100px;
+        left: 600px;
         max-height: 50%;
-        max-width: 25%;
+        max-width: 40%;
         background-color: transparent;
 
     }
@@ -647,7 +711,10 @@
         position: relative;
         z-index: 7;
         background-color: tranparent;
-        overflow-x: visible;
+        overflow-x: visible;        
+        
+        max-width: 100vw;
+
         
     }
     .lineGraph1{
@@ -677,6 +744,8 @@
         position: relative;
         z-index: 9;
         background-color: tranparent;
+        max-width: 100vw;
+
     }
     .barChart1{
         position: relative; /* Position images relative to the imageBox */
@@ -686,7 +755,6 @@
         max-height: 1000px; /* Set a maximum height to prevent excessive scaling */
         z-index: 11;
         overflow-y: auto;
-        border-style: solid;
         margin-bottom: 0rem;
 
         top: 0;
@@ -695,7 +763,7 @@
     }
 
     .barChartTitle1{
-        top: 30px;
+        top: 90px;
         left: 0%;
         position: relative;
         font-size: 40px;
@@ -721,13 +789,15 @@
         flex-direction: center;
         align-items: center;
         top: 7000px;
-        left: 500px;
+        left: 300px;
 		height: 65%;
 		width:  80%;
 		margin-bottom: 0rem;
         position: absolute;
         z-index: 8;
         background-color: transparent;
+        max-width: 100vw;
+
         /* border-style: solid;
         border-radius: 1%;
         border-width: 4px;
@@ -785,7 +855,7 @@
         margin-bottom: 15px;
         font-size: small;
         left: 190px;
-        top: 0px;
+        top: -130px;
         position: relative;
         display: flex;
         flex-direction: row;
@@ -823,7 +893,7 @@
         display: flex;
         flex-direction: column;
 		height: 100%;
-		width:  90%;
+		width:  100vw;
 		margin-bottom: 0rem;
         position: relative;
         /* margin: 0; */
@@ -833,7 +903,7 @@
     .box2 {
         display: flex;
         flex-direction: column;
-        top: -1000px;
+        top: -900px;
 		height: 100%;
 		width:  80%;
 		margin-bottom: 0rem;

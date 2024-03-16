@@ -173,7 +173,7 @@
   
 	let tooltipText = '';
 
-	const margin = { top: 10, right: 50, bottom: 60, left: 60 }; // Increase margin for axis labels
+	const margin = { top: 10, right: 0, bottom: 60, left: 60 }; // Increase margin for axis labels
 	const width = 10000 - margin.left - margin.right; // Adjust width
 	const height = 700 - margin.top - margin.bottom; // Adjust height
 
