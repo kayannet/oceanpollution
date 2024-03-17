@@ -131,26 +131,28 @@
 
         <div class = 'barChartTitleContainer1'>
             <p class = 'barChartTitle1'> Mismanaged plastic waste per capita (kg per year), 2019 </p>
-        <div class = 'barChart1' style:background="transparent">
-            <BarChart2/>
-        </div>
+            <div class="barChartContainer">
+                <div class = 'barChart1' style:background="transparent">
+                    <BarChart2/>
+                </div>
+            </div>
 
-        <div class = "caption2Box">
-            <p class="caption2">  Here, we can see the average kilograms of mismanged 
-                <br> plastic waste per person in 2019 from each country.
-                <br> Mismanaged waste is defined by trash that is not 
-                <br> recycled, incinerated, or kept in sealed landfills. 
-             </p>
-             <p class = "caption25">
-                While certain countries have a minimal mismanaged waste value, many others have very 
-                large amounts, which emphasizes that this issue is a global one. The disparity in waste 
-                management capabilities highlights the need for a coordinated global effort to address 
-                the challenges posed by plastic pollution. Countries with lower levels of mismanaged waste 
-                can share their best practices and provide support to those facing greater difficulties in 
-                managing their waste streams.
-             </p>
+            <div class = "caption2Box">
+                <p class="caption2">  Here, we can see the average kilograms of mismanged 
+                    <br> plastic waste per person in 2019 from each country.
+                    <br> Mismanaged waste is defined by trash that is not 
+                    <br> recycled, incinerated, or kept in sealed landfills. 
+                </p>
+                <p class = "caption25">
+                    While certain countries have a minimal mismanaged waste value, many others have very 
+                    large amounts, which emphasizes that this issue is a global one. The disparity in waste 
+                    management capabilities highlights the need for a coordinated global effort to address 
+                    the challenges posed by plastic pollution. Countries with lower levels of mismanaged waste 
+                    can share their best practices and provide support to those facing greater difficulties in 
+                    managing their waste streams.
+                </p>
 
-        </div>
+            </div>
 
         </div>
 
@@ -412,7 +414,8 @@
         height: 100vh;
         max-width: 100vw;
         overflow-y: auto; /* Enable vertical scrolling */
-        /* overflow-x: hidden; */ /* Remove this line */
+        overflow-x: hidden;
+
     }
 	h1 {
 		position: fixed;
@@ -510,7 +513,7 @@
     .caption2{
         display: flex;
         top: -500px;
-        left: 700px;
+        left: 600px;
         transform: translate(-50%, -50%); /* Translate the text to center it properly */
 		position: relative;
         font-family: 'Futura';
@@ -521,6 +524,7 @@
     }
     .caption25{
         top:-200px;
+        left: -100px
     }
     .text3box{
         position: relative;
@@ -734,38 +738,42 @@
      
     }
 
-    .barChartTitleContainer1{
+    .barChartTitleContainer1 {
         display: flex;
         flex-direction: column;
         align-items: center;
-        top: -1600px;
-		height: auto;
-		width:  90%;
-		margin-bottom: 0rem;
+        width: 90%;
+        max-width: 100vw;
+        margin-bottom: 0rem;
         position: relative;
         z-index: 9;
-        background-color: tranparent;
-        max-width: 100vw;
-
+        background-color: transparent;
+        top:-1800px;
+        left: 100px;
+        
+        
     }
-    .barChart1{
-        position: relative; /* Position images relative to the imageBox */
-        width: 100%; /* Adjust as needed */
-        height: 100%; /* Maintain aspect ratio */
-        max-width: 1300px;
-        max-height: 1000px; /* Set a maximum height to prevent excessive scaling */
-        z-index: 11;
-        overflow-y: auto;
-        margin-bottom: 0rem;
 
-        top: 0;
-        left: 0;
-        align-items: center;
+    .barChartContainer {
+        width: 100%; /* Adjust as needed */
+        max-width: 90vw; /* Adjust as needed */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        margin-bottom: 0rem;
+        
+    }
+
+    .barChart1 {
+        position: relative;
+        max-width: 1300px; /* Adjust as needed */
+        max-height: 1000px; /* Adjust as needed */
+        z-index: 11;
+        overflow-x: auto; /* Enable horizontal scrolling */
+        margin-bottom: 0rem;
     }
 
     .barChartTitle1{
         top: 90px;
-        left: 0%;
+        left: -100px;
         position: relative;
         font-size: 40px;
         font-family: Futura;
