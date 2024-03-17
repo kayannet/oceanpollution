@@ -76,7 +76,7 @@
 
   let tooltipText = '';
 
-  const margin = { top: 60, right: 0, bottom: 80, left: 150 };
+  const margin = { top: 60, right: 10, bottom: 80, left: 150 };
   const width = 1000 - margin.left - margin.right;
   const height = 600 - margin.top - margin.bottom;
 
@@ -170,7 +170,7 @@
 ;
   });
 
-  const xOffset = -200; // adjust the horizontal offset
+  const xOffset = -300; // adjust the horizontal offset
   const yOffset = -200; // adjust the vertical offset
   function handleMousemove(event) {
     const tooltip = document.getElementById('tooltip');

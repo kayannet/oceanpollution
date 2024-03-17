@@ -607,7 +607,7 @@
 
         position: relative;
         top: 100px;
-        left: 600px;
+        left: 630px;
         max-height: 50%;
         max-width: 40%;
         background-color: transparent;
@@ -718,7 +718,6 @@
         background-color: tranparent;
         overflow-x: visible;        
         
-        max-width: 100vw;
 
         
     }
